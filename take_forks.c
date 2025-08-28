@@ -1,25 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   take_forks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 19:08:42 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 17:24:05 by ecakdemi         ###   ########.fr       */
+/*   Created: 2025/08/27 22:55:42 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/08/27 23:01:14 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int ac, char **av)
-{
-	t_main_struct *main_struct;
-	
-	if (arg_check_error(ac, av) == -1)	
-		return (-1);
-	main_struct = malloc(sizeof(t_main_struct));
-	if (!main_struct)
-		return (0);
-	variable_assignment(main_struct, av);
-}

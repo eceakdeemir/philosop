@@ -1,6 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/08/28 17:14:43 by ecakdemi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 #define PHILO_H
 #include <pthread.h>
+#include <stdlib.h>
+#include <stdio.h>
 typedef struct s_main_struct t_main_struct;
 
 typedef struct s_philo
@@ -11,8 +25,9 @@ typedef struct s_philo
 	long last_meal_time;
 	pthread_t filo_thread;
 	t_main_struct *main_ref;
+	pthread_mutex_t *left_fork;
+	pthread_mutex_t *right_fork;
 } t_philo;
-
 
 typedef struct s_main_struct
 {
@@ -32,7 +47,15 @@ typedef struct s_main_struct
 } t_main_struct;
 
 
+// ----arg_error_check------
+int	ft_is_all_digit(char *arg_str);
+int	ft_atoi(const char *str);
+int arg_parse(char *arg_str);
+int arg_number(int ac, char **av);
+int arg_check_error(int ac, char **av);
 
+//-----assignment-------
+int variable_assignment(t_main_struct *main_struct, char **av);
 
 
 #endif

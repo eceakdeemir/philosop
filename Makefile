@@ -3,10 +3,10 @@ NAME = PHILO
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = 
+SRC = arg_error_check.c assignment.c main.c
 
 all: $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o philosofhers
+	$(CC) $(CFLAGS) $(SRC) -o philosophers
 
 clean:
 	rm -r philosofhers

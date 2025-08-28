@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:04:36 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/23 19:17:24 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:20:45 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ int arg_number(int ac, char **av)
 
 int arg_check_error(int ac, char **av)
 {
-	if (ft_atoi(av[1]) > 200 || arg_parse(av[1]) == -1)
+	if (arg_number(ac, av) != 0)
+		return (-1);
+	if (ft_atoi(av[1]) > 200 || arg_parse(av[1]) == -1 || ft_atoi(av[1]) == 0)
 	{
 		printf("PHILO NUMBER ERROR\n");
 		return (-1);
@@ -102,7 +104,5 @@ int arg_check_error(int ac, char **av)
 		printf("PHILO SLEEP TIME ERROR\n");
 		return (-1);
 	}
-	if (arg_number(ac, av) != 0)
-		return (-1);
 	return (0);
 }
