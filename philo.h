@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 00:25:31 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 01:47:20 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,12 @@ void *routine(void *philosophers);
 
 //-------saying_act----------
 void saying_act(t_philo *philo, char *message, int flag);
+
+//-------dead_control---------
+int one_philo_dead_control_for_monitor(t_philo *philo);
+void *monitor_thread_dead_control(void *main_struct);
+
+
 
 
 #endif

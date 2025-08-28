@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:08:42 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 22:36:48 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 02:20:02 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int main(int ac, char **av)
 {
 	t_main_struct *main_struct;
-	
+	int i;
+
+	i = 0;
 	if (arg_check_error(ac, av) == -1)	
 		return (1);
 	main_struct = malloc(sizeof(t_main_struct));
@@ -28,5 +30,16 @@ int main(int ac, char **av)
 		return (1);
 	create_philo_array(main_struct);
 	assign_start_time(main_struct);
-	
+	create_philo_thread(main_struct);
+	pthread_create(&main_struct->the_angel_of_death, NULL, monitor_thread_dead_control, main_struct);
+	while (i < main_struct->number_of_philo)
+	{
+		pthread_join(main_struct->all_philos[i].filo_thread, NULL);
+		i++;
+	}
+	pthread_join(main_struct->the_angel_of_death, NULL);
+	destroy_mutex(main_struct, 0);
+	free(main_struct->all_philos);
+	free(main_struct->forks_mutex);
+	free(main_struct);
 }
