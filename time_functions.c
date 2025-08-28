@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   time_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 19:08:42 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 20:12:30 by ecakdemi         ###   ########.fr       */
+/*   Created: 2025/08/28 20:09:07 by ecakdemi          #+#    #+#             */
+/*   Updated: 2025/08/28 20:09:21 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int main(int ac, char **av)
+unsigned long get_current_millis()
 {
-	t_main_struct *main_struct;
-	
-	if (arg_check_error(ac, av) == -1)	
-		return (1);
-	main_struct = malloc(sizeof(t_main_struct));
-	if (!main_struct)
-		return (0);
-	main_struct->died_id = -1;
-	if (variable_assignment(main_struct, av) == -1)
-		return (1);
-	if(init_mutex(main_struct) == -1)
-		return (1);
-	create_philo_array(main_struct);
-	assign_start_time(main_struct);
-
+    struct timeval time_value;
+	gettimeofday(&time_value, NULL);
+	return (time_value.tv_sec * 1000 + time_value.tv_usec / 1000);
 }

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 19:59:56 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 20:13:33 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <sys/time.h>
 typedef struct s_main_struct t_main_struct;
 
 typedef struct s_philo
@@ -56,6 +57,8 @@ int arg_check_error(int ac, char **av);
 
 //-----assignment-------
 int variable_assignment(t_main_struct *main_struct, char **av);
+void assign_start_time(t_main_struct *main_struct);
+
 
 //------init_destroy_mutex------
 void destroy_mutex(t_main_struct *main_struct, int init_number);
@@ -63,5 +66,9 @@ int init_mutex(t_main_struct *main_struct);
 
 //-------create_philo-------
 void create_philo_array(t_main_struct *main_struct);
+
+//------time_functions-------
+unsigned long get_current_millis();
+
 
 #endif
