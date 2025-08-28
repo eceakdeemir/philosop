@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 17:46:28 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 18:21:49 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 18:30:59 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void destroy_mutex(t_main_struct *main_struct, int init_number)
 int init_mutex(t_main_struct *main_struct)
 {
 	int i;
+
 	i = 0;
 	while (i < main_struct->number_of_philo)
 	{
@@ -61,4 +62,3 @@ int init_mutex(t_main_struct *main_struct)
 	}
 	return (0);
 }
-

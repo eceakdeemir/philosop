@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:08:42 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 18:28:30 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 19:59:38 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int main(int ac, char **av)
 		return (1);
 	if(init_mutex(main_struct) == -1)
 		return (1);
+	create_philo_array(main_struct);
 }
