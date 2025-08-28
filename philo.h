@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 17:14:43 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:53:03 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ int arg_check_error(int ac, char **av);
 
 //-----assignment-------
 int variable_assignment(t_main_struct *main_struct, char **av);
+
+//------init_destroy_mutex------
+void destroy_mutex(t_main_struct *main_struct, int init_number);
+int init_mutex(t_main_struct *main_struct);
 
 
 #endif

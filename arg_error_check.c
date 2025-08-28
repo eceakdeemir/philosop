@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:04:36 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 17:20:45 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:34:20 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,7 @@ int	ft_atoi(const char *str)
 int arg_parse(char *arg_str)
 {
 	if (ft_is_all_digit(arg_str) == -1)
-	{
-		printf("ARG NUMBER ERROR\n");
 		return (-1);
-	}
 	return (0);
 }
 
