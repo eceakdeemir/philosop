@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 19:33:47 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 20:00:14 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/28 22:54:37 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ void create_philo_array(t_main_struct *main_struct)
 		main_struct->all_philos[i].total_meal_number = 0;
 		main_struct->all_philos[i].flag = 0;
 		main_struct->all_philos[i].last_meal_time = 0;
+		i++;
+	}
+}
+
+void create_philo_thread(t_main_struct *main_struct)
+{
+	int i;
+
+	i = 0;
+	while (i < main_struct->number_of_philo)
+	{
+		pthread_create(&(main_struct->all_philos[i].filo_thread), NULL, routine, &(main_struct->all_philos[i]));
 		i++;
 	}
 }

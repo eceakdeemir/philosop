@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 20:13:33 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 00:25:31 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
+#include <unistd.h>
 typedef struct s_main_struct t_main_struct;
 
 typedef struct s_philo
@@ -66,9 +67,18 @@ int init_mutex(t_main_struct *main_struct);
 
 //-------create_philo-------
 void create_philo_array(t_main_struct *main_struct);
+void create_philo_thread(t_main_struct *main_struct);
 
 //------time_functions-------
 unsigned long get_current_millis();
+void ft_msleep(unsigned long mls);
+
+//-------routine.c-----------
+void take_forks(t_philo *philo);
+void *routine(void *philosophers);
+
+//-------saying_act----------
+void saying_act(t_philo *philo, char *message, int flag);
 
 
 #endif
