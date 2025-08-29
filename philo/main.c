@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:08:42 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 23:01:58 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 02:31:53 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	destroy_all(t_main_struct *main_struct)
 {
 	destroy_mutex(main_struct, 0);
+	pthread_mutex_destroy(&main_struct->meal_mutex);
 	pthread_mutex_destroy(&main_struct->message_mutex);
 	pthread_mutex_destroy(&main_struct->stop_mutex);
 	free(main_struct->all_philos);

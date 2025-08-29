@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 00:37:36 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/30 01:01:11 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 02:06:30 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	one_philo_dead_control_for_monitor(t_philo *philo)
 
 int	control_times_to_eat(t_main_struct *main_s, int *everyone_eat)
 {
-	if (main_s->eat_number > 0 && everyone_eat)
+	if (main_s->eat_number > 0 && everyone_eat && *everyone_eat == 1)
 	{
 		pthread_mutex_lock(&main_s->stop_mutex);
 		if (main_s->stop_control == 0)
@@ -80,9 +80,8 @@ void	*monitor_thread_dead_control(void *main_struct)
 			i++;
 			pthread_mutex_unlock(&main_s->meal_mutex);
 		}
+		if (control_times_to_eat(main_s, &everyone_eat))
+			return (NULL);
 	}
-	if (control_times_to_eat(main_s, &everyone_eat))
-		return (NULL);
-	usleep(500);
 	return (NULL);
 }
