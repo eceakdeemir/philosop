@@ -1,7 +1,7 @@
 NAME = philo
 #relink var düzelt
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -pthread
+CFLAGS = -Wall -Wextra -Werror -pthread -g -fsanitize=thread
 
 SRC = arg_error_check.c assignment.c init_destroy_mutex.c create_philo.c \
 time_functions.c routine.c saying_act.c dead_control.c main.c

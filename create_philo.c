@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 19:33:47 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 23:10:09 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:53:32 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ void	create_philo_array(t_main_struct *main_struct)
 		main_struct->all_philos[i].left_fork = &main_struct->forks_mutex[i];
 		main_struct->all_philos[i].right_fork = &main_struct->forks_mutex[(i
 				+ 1) % main_struct->number_of_philo];
+		pthread_mutex_lock(&main_struct->meal_mutex);
 		main_struct->all_philos[i].total_meal_number = 0;
+		pthread_mutex_unlock(&main_struct->meal_mutex);
 		main_struct->all_philos[i].flag = 0;
+		pthread_mutex_lock(&main_struct->meal_mutex);
 		main_struct->all_philos[i].last_meal_time = 0;
+		pthread_mutex_unlock(&main_struct->meal_mutex);
 		i++;
 	}
 }

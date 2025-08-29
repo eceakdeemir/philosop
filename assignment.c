@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:16:52 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 23:12:05 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:50:21 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	assign_start_time(t_main_struct *main_struct)
 	main_struct->start_time = get_current_millis();
 	while (i < main_struct->number_of_philo)
 	{
+		pthread_mutex_lock(&main_struct->meal_mutex);
 		main_struct->all_philos[i].last_meal_time = main_struct->start_time;
+		pthread_mutex_unlock(&main_struct->meal_mutex);
 		i++;
 	}
 }

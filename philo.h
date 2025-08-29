@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 16:51:08 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 23:16:34 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 01:01:24 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_main_struct
 	pthread_t					the_angel_of_death;
 	pthread_mutex_t				stop_mutex;
 	pthread_mutex_t				*forks_mutex;
+	pthread_mutex_t				meal_mutex;
 	pthread_mutex_t				message_mutex;
 }								t_main_struct;
 
@@ -71,5 +72,6 @@ void							saying_act(t_philo *philo, char *message,
 int								one_philo_dead_control_for_monitor(
 									t_philo *philo);
 void							*monitor_thread_dead_control(void *main_struct);
+int								check_death_status(t_philo *philo);
 
 #endif

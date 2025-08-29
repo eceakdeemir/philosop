@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 17:46:28 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 22:56:21 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 00:34:39 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int	init_mutex(t_main_struct *main_struct)
 		pthread_mutex_destroy(&(main_struct->message_mutex));
 		return (-1);
 	}
+	pthread_mutex_init(&main_struct->meal_mutex, NULL);
 	return (0);
 }

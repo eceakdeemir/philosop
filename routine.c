@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 23:14:27 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 23:12:05 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/30 01:01:31 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void	*routine(void *philosophers)
 		if (check_death_status(philo))
 			break ;
 		take_forks(philo);
-		pthread_mutex_lock(&philo->main_ref->stop_mutex);
+		pthread_mutex_lock(&philo->main_ref->meal_mutex);
 		philo->last_meal_time = (long)get_current_millis();
-		pthread_mutex_unlock(&philo->main_ref->stop_mutex);
+		philo->total_meal_number++;
+		pthread_mutex_unlock(&philo->main_ref->meal_mutex);
 		saying_act(philo, "is eating", 0);
 		ft_msleep(philo->main_ref->time_to_eat);
-		philo->total_meal_number++;
 		pthread_mutex_unlock(philo->left_fork);
 		pthread_mutex_unlock(philo->right_fork);
 		if (check_death_status_and_return(philo))
