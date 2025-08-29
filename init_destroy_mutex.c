@@ -6,15 +6,15 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 17:46:28 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 18:30:59 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 22:56:21 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void destroy_mutex(t_main_struct *main_struct, int init_number)
+void	destroy_mutex(t_main_struct *main_struct, int init_number)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (init_number == 0)
@@ -35,9 +35,9 @@ void destroy_mutex(t_main_struct *main_struct, int init_number)
 	}
 }
 
-int init_mutex(t_main_struct *main_struct)
+int	init_mutex(t_main_struct *main_struct)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < main_struct->number_of_philo)

@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 19:04:36 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 17:34:20 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 22:55:50 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_is_all_digit(char *arg_str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(arg_str[i])
+	while (arg_str[i])
 	{
 		if (!(arg_str[i] >= '0' && arg_str[i] <= '9'))
 			return (-1);
-		i++;	
+		i++;
 	}
 	return (0);
 }
@@ -52,20 +52,20 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-int arg_parse(char *arg_str)
+int	arg_parse(char *arg_str)
 {
 	if (ft_is_all_digit(arg_str) == -1)
 		return (-1);
 	return (0);
 }
 
-int arg_number(int ac, char **av)
+int	arg_number(int ac, char **av)
 {
-    if (ac != 5 && ac != 6)
-    {
-        printf("arg count error\n");
-        return (-1);
-    }
+	if (ac != 5 && ac != 6)
+	{
+		printf("arg count error\n");
+		return (-1);
+	}
 	if (ac == 6)
 	{
 		if (ft_atoi(av[5]) < 0 || arg_parse(av[5]) == -1)
@@ -77,7 +77,7 @@ int arg_number(int ac, char **av)
 	return (0);
 }
 
-int arg_check_error(int ac, char **av)
+int	arg_check_error(int ac, char **av)
 {
 	if (arg_number(ac, av) != 0)
 		return (-1);

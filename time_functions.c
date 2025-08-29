@@ -6,25 +6,25 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 20:09:07 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/28 23:42:10 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 23:17:37 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-unsigned long get_current_millis()
+unsigned long	get_current_millis(void)
 {
-    struct timeval time_value;
+	struct timeval	time_value;
+
 	gettimeofday(&time_value, NULL);
 	return (time_value.tv_sec * 1000 + time_value.tv_usec / 1000);
 }
 
-void ft_msleep(unsigned long mls)
+void	ft_msleep(unsigned long mls)
 {
-    unsigned long time;
+	unsigned long	time;
 
 	time = get_current_millis();
-    while (get_current_millis() - time < mls)
-        usleep(500);
-
+	while (get_current_millis() - time < mls)
+		usleep(500);
 }
