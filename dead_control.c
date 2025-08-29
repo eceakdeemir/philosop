@@ -6,7 +6,7 @@
 /*   By: ecakdemi <ecakdemi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 00:37:36 by ecakdemi          #+#    #+#             */
-/*   Updated: 2025/08/29 02:26:12 by ecakdemi         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:16:08 by ecakdemi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int one_philo_dead_control_for_monitor(t_philo *philo)
 			philo->main_ref->stop_control = -1;
 			philo->main_ref->died_id = philo->philo_id;
 		}
-		saying_act(philo, "died", 0);
 		pthread_mutex_unlock(&philo->main_ref->stop_mutex);
+		saying_act(philo, "died", 0);
 		return (-1);
 	}
 	return (0);
